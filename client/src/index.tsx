@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import isMobile from './utils/is-mobile';
-import MobileApp from './MobileApp';
-import App from './App';
+import MobileApp from './views/mobile/MobileApp';
+import App from './views/pc/App';
 
 ReactDOM.render(isMobile() ? <MobileApp /> : <App />, document.getElementById('root'));
 

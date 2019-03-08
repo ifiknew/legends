@@ -1,0 +1,28 @@
+.App {
+  width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient(to top, #a3bded 0%, #6991c7 100%);
+  .main {
+    height: calc(100% - 150px);
+    display: flex;
+    .battleField {
+      flex: 1 1 auto;
+      padding: 20px;
+      
+      & > div {
+        display: flex;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 1px 4px 20px 0px rgba(0, 0, 0, 0.38);
+      }
+    }
+    .side {
+      flex: 0 0 300px;
+    }
+  }
+
+  .monsterGroup {
+    height: 150px;
+  }
+
+}

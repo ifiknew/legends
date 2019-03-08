@@ -45,10 +45,12 @@
     "jest": "23.6.0",
     "jest-pnp-resolver": "1.0.1",
     "jest-resolve": "23.6.0",
+    "matter-js": "^0.14.2",
     "mini-css-extract-plugin": "0.4.3",
     "moment": "^2.24.0",
     "optimize-css-assets-webpack-plugin": "5.0.1",
     "pnp-webpack-plugin": "1.1.0",
+    "poly-decomp": "^0.3.0",
     "postcss-flexbugs-fixes": "4.1.0",
     "postcss-loader": "3.0.0",
     "postcss-preset-env": "6.3.1",
@@ -137,6 +139,7 @@
     "@babel/plugin-transform-react-jsx": "^7.3.0",
     "@types/react-codemirror": "^1.0.2",
     "@types/react-router-dom": "^4.3.1",
+    "@types/matter-js": "^0.10.2",
     "node-sass": "^4.11.0"
   }
 }
