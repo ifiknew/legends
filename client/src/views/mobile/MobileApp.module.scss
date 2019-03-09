@@ -1,0 +1,25 @@
+.MobileApp {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  .directionCircle {
+    flex: 0 0 150px;
+    height: 150px;
+    background-image: linear-gradient(to top, #0c3483 0%, #a2b6df 100%, #6b8cce 100%, #a2b6df 100%);
+    border-radius: 50%;
+    margin-right: 20vw;
+    border: 10px solid white;
+    box-shadow: 0 0 5px 5px rgba(0,0,0,.3);
+  }
+  .buttonGroup {
+    flex: 0 0 300px;
+    height: 64px;
+    background-color: gray;
+    color: #000;
+  }
+}

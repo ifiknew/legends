@@ -2,7 +2,7 @@ import * as WebSocket from 'ws'
 import Dispatcher from './Dispatcher';
 
 var PORT = 8086;
-const HOST = 'localhost'
+const HOST = '192.168.1.102'
 const server = new WebSocket.Server({
   port: PORT,
   host: HOST,

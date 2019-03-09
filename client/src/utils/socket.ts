@@ -1,6 +1,6 @@
 
 const PORT = 8086;
-const HOST = 'localhost';
+const HOST = '192.168.1.102';
 
 const client = new WebSocket(`ws://${HOST}:${PORT}`);
 

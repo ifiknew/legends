@@ -15,4 +15,6 @@ declare namespace App {
     uuid: string
   }
 
+  interface StoreState {
+  }
 }
