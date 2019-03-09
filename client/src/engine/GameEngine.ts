@@ -57,7 +57,7 @@ class GameEngine {
   }
 
   public setExecutors = (executors: Array<AbstractExecutor>) => {
-    this.executors
+    this.executors = executors
   }
   public execute = (command: App.Message) => {
     this.executors.forEach(ex => ex.execute(command))

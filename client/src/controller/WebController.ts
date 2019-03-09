@@ -1,4 +1,4 @@
-class GameController {
+class WebController {
 
 }
-export default GameController
+export default WebController
