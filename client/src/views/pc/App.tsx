@@ -3,7 +3,7 @@ import 'typeface-roboto'
 import './App.css'
 import styles from './App.module.scss'
 import guid from '../../utils/guid';
-import getSocketClient from '../../utils/socket';
+import { getSocketClient } from '../../utils/socket';
 import BattleContainer from './battle/BattleContainer';
 import LegendContainer from './legend/LegendContainer';
 import MonsterContainer from './monster/MonsterContainer';

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import getSocketClient from '../../utils/socket';
+import { getSocketClient } from '../../utils/socket';
 import guid from '../../utils/guid';
 import styles from './MobileApp.module.scss'
 export interface MobileAppProps {

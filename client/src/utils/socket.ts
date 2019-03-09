@@ -35,4 +35,6 @@ const getSocketClient = () => {
 }
 
 
-export default getSocketClient
+export {
+  getSocketClient
+}
