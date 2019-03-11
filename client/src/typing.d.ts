@@ -2,15 +2,16 @@
 declare namespace App {
 
   interface Message<T extends string> {
-    source: 'mobile' | 'web' | 'server',
-    uuid: string,
+    source?: 'mobile' | 'web' | 'server',
+    uuid?: string,
     type: T,
     data: MessageMap[T]
   }
 
   interface MessageMap {
     'control/move': { x: number, y: number, r?: number }
-    'app/init': {}
+    'app/init': {},
+    'battle/attack': { group: 'legend' | 'monster' }
   }
 
   type Keys = keyof MessageMap
@@ -27,4 +28,7 @@ declare namespace App {
   interface StoreState {
   }
   
+  interface Monster {
+    body: Matter.Body
+  }
 }

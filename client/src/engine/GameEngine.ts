@@ -1,5 +1,6 @@
 import * as Matter from 'matter-js'
 import ExecutorRuntime from './executors/ExecutorRuntime';
+import GameState from '../enums/GameState';
 const { Engine, Render, World, Bodies, MouseConstraint, Body, Vector } =  Matter
 const DEFAULT_SIZE = 64
 const LONG_AXIS = 3000
@@ -13,10 +14,10 @@ class GameEngine {
   private engine: Matter.Engine
   private world: Matter.World
 
-  private userMap: { [key: string]: Matter.Body } = {}
-  private enemyList: Array<any> = []
-  
-
+  public userMap: { [key: string]: Matter.Body } = {}
+  public monsterList: Array<App.Monster> = []
+  public flyList: Array<any> = []
+  public gameState: GameState = GameState.Ready
 
   constructor() {
     const engine = Engine.create({})
@@ -74,16 +75,27 @@ class GameEngine {
    * context is used by executors
    */
   public getContext = () => {
-    const { engine, world, userMap } = this
+    const { engine, world, userMap, monsterList, flyList, gameState } = this
     return {
       engine,
       world,
-      userMap
+      userMap,
+      monsterList,
+      flyList,
+      gameState
     }
+  }
+
+  public getWorld = () => {
+    return this.world
   }
 
   public setExecutorMap = (map: App.ExecutorMap) => {
     this.executorMap = map
+  }
+
+  public setGameState = (gameState: GameState) => {
+    this.gameState = gameState
   }
   /**
    * execute commands.

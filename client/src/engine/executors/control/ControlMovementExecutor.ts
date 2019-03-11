@@ -8,7 +8,8 @@ class ControlMovementExecutor extends AbstractExecutor<'control/move'> {
   public execute = async (message: App.Message<'control/move'>) => {
     if (message.source === 'mobile') {
       const { userMap } = this.engine.getContext()
-      const body = userMap[message.uuid]
+      const { uuid = '' } = message
+      const body = userMap[uuid]
       if (body) {
         const { x, y, r = 1 } = message.data
         console.log(message.data)
