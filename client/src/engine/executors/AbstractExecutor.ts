@@ -1,18 +1,15 @@
 import GameEngine from "../GameEngine";
 
-interface IExecutor {
-  execute: (command: App.Message) => Promise<any>
-}
 
-abstract class AbstractExecutor implements IExecutor {
+abstract class AbstractExecutor<T extends string> {
 
-  private engine: GameEngine
+  protected engine: GameEngine
 
   constructor(engine: GameEngine) {
     this.engine = engine
   }
 
-  abstract execute: any
+  public abstract execute: (command: App.Message<T>) => Promise<any>
 }
 
 export default AbstractExecutor

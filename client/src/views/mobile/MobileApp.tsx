@@ -13,7 +13,7 @@ export default class MobileApp extends React.Component<MobileAppProps, any> {
   direction: HTMLDivElement | null = null
   componentDidMount() {
     setTimeout(() => {
-      const msg: App.Message = {
+      const msg: App.Message<'app/init'> = {
         type: 'app/init',
         source: 'mobile',
         uuid,
@@ -33,7 +33,7 @@ export default class MobileApp extends React.Component<MobileAppProps, any> {
               this.direction = el
             }
           }}
-          onTouchMove={e => {
+          onTouchEnd={e => {
             e.preventDefault()
             e.stopPropagation()
             if (this.direction == null) {
@@ -41,19 +41,19 @@ export default class MobileApp extends React.Component<MobileAppProps, any> {
             }
             const centerX = this.direction.offsetLeft + R
             const centerY = this.direction.offsetTop + R
-
-            const touch = e.targetTouches[0]
+            const touch = e.changedTouches[0]
             const disX = touch.clientX - centerX
             const disY = touch.clientY - centerY
             const normalizedDis = (disX ** 2 + disY ** 2) ** 0.5
             
-            const msg: App.Message = {
+            const msg: App.Message<'control/move'> = {
               type: 'control/move',
               source: 'mobile',
               uuid,
               data: {
                 x: disX / normalizedDis,
                 y: disY / normalizedDis,
+                r: normalizedDis / R
               }
             }
             socket.send(JSON.stringify(msg))

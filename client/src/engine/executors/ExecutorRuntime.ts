@@ -1,9 +1,16 @@
 import GameEngine from "../GameEngine";
-import AbstractExecutor from "./AbstractExecutor";
+import ControlMovementExecutor from "./control/ControlMovementExecutor";
+import AppInitExecutor from "./lifecycle/AppInitExecutor";
+
+const bindExecutorMap = (engine: GameEngine) => ({
+  'control/move': new ControlMovementExecutor(engine),
+  'app/init': new AppInitExecutor(engine)
+})
 
 const ExecutorRuntime = {
-  bind: (engine: GameEngine, excutors: Array<AbstractExecutor>) => {
-    engine.setExecutors(excutors)
+  bind: (engine: GameEngine) => {
+    const executorMap = bindExecutorMap(engine)
+    engine.setExecutorMap(executorMap)
   }
 }
 

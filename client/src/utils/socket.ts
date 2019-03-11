@@ -7,7 +7,7 @@ let bufferedMessages: Array<any> = []
 
 client.send = (message) => {
   if (client.readyState === WebSocket.OPEN) {
-    originalSend(message)
+    originalSend.call(client, message)
   } else {
     bufferedMessages.push(message)
   }
@@ -19,7 +19,7 @@ client.onmessage = (ev) => {
 client.onopen = () => {
   console.log('start')
   bufferedMessages.forEach(m => {
-    originalSend(m)
+    originalSend.call(client, m)
   })
   bufferedMessages = []
 }

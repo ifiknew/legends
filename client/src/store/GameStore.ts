@@ -10,7 +10,7 @@ type SubscribeOption<T> = {
   callback: (state: App.StoreState) => void
 }
 interface Reducer {
-  (state: App.StoreState ,message: App.Message): App.StoreState
+  (state: App.StoreState ,message: App.Message<any>): App.StoreState
 }
 
 class GameStore {
@@ -22,7 +22,7 @@ class GameStore {
   private _caches: Map<Function, any> = new Map()
   
 
-  public dispatch = (message: App.Message) => {
+  public dispatch = (message: App.Message<any>) => {
     const currentState = this.state
     const nextState = this.reducer(this.state, message)
     this.state = nextState
